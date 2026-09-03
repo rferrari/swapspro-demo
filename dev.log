@@ -1,0 +1,86 @@
+npm warn Unknown user config "allow-scripts". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> swapspro-demo@0.1.0 dev
+> next dev
+
+ ⚠ Port 3000 is in use, trying 3001 instead.
+ ⚠ Port 3001 is in use, trying 3002 instead.
+   ▲ Next.js 15.0.3
+   - Local:        http://localhost:3002
+
+ ✓ Starting...
+ ✓ Ready in 1365ms
+ ○ Compiling / ...
+
+warn - The `content` option in your Tailwind CSS configuration is missing or empty.
+warn - Configure your content sources or your generated CSS will be missing styles.
+warn - https://tailwindcss.com/docs/content-configuration
+ ✓ Compiled / in 2.7s (625 modules)
+ GET / 200 in 2966ms
+ ✓ Compiled in 421ms (304 modules)
+ ✓ Compiled in 315ms (304 modules)
+ ✓ Compiled in 88ms (304 modules)
+ ✓ Compiled in 129ms (304 modules)
+ ✓ Compiled in 191ms (304 modules)
+ ✓ Compiled in 146ms (304 modules)
+ ✓ Compiled in 120ms (304 modules)
+ ✓ Compiled in 118ms (304 modules)
+ ✓ Compiled in 78ms (304 modules)
+ ✓ Compiled in 130ms (304 modules)
+ ✓ Compiled in 112ms (304 modules)
+ ✓ Compiled in 110ms (304 modules)
+ ✓ Compiled in 83ms (304 modules)
+ ✓ Compiled in 81ms (304 modules)
+ ✓ Compiled in 105ms (304 modules)
+ ✓ Compiled in 81ms (304 modules)
+ ✓ Compiled in 95ms (304 modules)
+ ✓ Compiled in 169ms (304 modules)
+ ✓ Compiled in 72ms (304 modules)
+ ✓ Compiled in 94ms (304 modules)
+ ✓ Compiled in 83ms (304 modules)
+ ✓ Compiled in 815ms (303 modules)
+ ✓ Compiled in 89ms (303 modules)
+ ✓ Compiled in 177ms (303 modules)
+ ✓ Compiled in 125ms (303 modules)
+ ✓ Compiled in 172ms (303 modules)
+ ✓ Compiled in 96ms (303 modules)
+ ✓ Compiled in 114ms (303 modules)
+ ✓ Compiled in 154ms (303 modules)
+ ✓ Compiled in 87ms (303 modules)
+ ✓ Compiled in 80ms (303 modules)
+ ✓ Compiled in 98ms (303 modules)
+ ✓ Compiled in 137ms (303 modules)
+ ✓ Compiled in 116ms (303 modules)
+ ✓ Compiled in 62ms (303 modules)
+ ✓ Compiled in 131ms (303 modules)
+ ✓ Compiled in 85ms (303 modules)
+ ✓ Compiled in 115ms (303 modules)
+ ✓ Compiled in 77ms (303 modules)
+ ✓ Compiled in 139ms (303 modules)
+ ✓ Compiled in 130ms (303 modules)
+ ✓ Compiled in 166ms (303 modules)
+ ✓ Compiled in 173ms (303 modules)
+ ✓ Compiled in 132ms (303 modules)
+ ✓ Compiled in 104ms (303 modules)
+ ✓ Compiled in 86ms (303 modules)
+ ✓ Compiled in 130ms (303 modules)
+ ✓ Compiled in 101ms (303 modules)
+ ✓ Compiled in 64ms (303 modules)
+ ✓ Compiled in 155ms (303 modules)
+ ✓ Compiled in 73ms (303 modules)
+ ✓ Compiled in 79ms (303 modules)
+ ✓ Compiled in 144ms (303 modules)
+ ✓ Compiled in 245ms (303 modules)
+ ✓ Compiled in 75ms (303 modules)
+ ✓ Compiled in 205ms (303 modules)
+ ✓ Compiled in 179ms (303 modules)
+ ✓ Compiled in 81ms (303 modules)
+ ✓ Compiled in 260ms (303 modules)
+ ✓ Compiled in 143ms (303 modules)
+ ✓ Compiled in 117ms (303 modules)
+ ✓ Compiled in 225ms (303 modules)
+ ✓ Compiled in 167ms (303 modules)
+ ✓ Compiled in 181ms (303 modules)
+ ✓ Compiled in 159ms (303 modules)
+ ✓ Compiled in 123ms (303 modules)
+ ✓ Compiled in 126ms (303 modules)

@@ -1,0 +1,9 @@
+npm warn Unknown user config "allow-scripts". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> swapspro-demo@0.1.0 lint
+> next lint
+
+? How would you like to configure ESLint? https://nextjs.org/docs/app/building-your-application/configuring/eslint
+[?25l❯  Strict (recommended)
+   Base
+   Cancel ⚠ If you set up ESLint yourself, we recommend adding the Next.js ESLint plugin. See https://nextjs.org/docs/app/building-your-application/configuring/eslint#migrating-existing-config
