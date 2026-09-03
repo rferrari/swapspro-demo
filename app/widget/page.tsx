@@ -18,7 +18,15 @@ export default function WidgetPage() {
           <Link href="/" className="text-sm text-gray-300 mb-2">
             ← Back to Home
           </Link>
-          <h1 className="text-2xl font-bold text-white">
+          <div className="flex space-x-4 text-sm text-gray-300">
+            <Link href="/widget/simple" className="hover:underline">
+              Simple Demo
+            </Link>
+            <Link href="/widget/advanced" className="ml-4 hover:underline">
+              Advanced Demo
+            </Link>
+          </div>
+          <h1 className="text-2xl font-bold text-white mt-4">
             SwapPro Widget Demo
           </h1>
         </div>
