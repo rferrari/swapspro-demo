@@ -14,7 +14,7 @@ export default function SDKPage() {
     setError(null);
     try {
       const sdk = new SwapsPro({
-        baseUrl: "https://www.swaps.pro/api/sdk/v1",
+        baseUrl: "https://www.swaps.pro",
         partner: "swapspro-demo",
       });
 
@@ -51,14 +51,14 @@ export default function SDKPage() {
             <p className="text-gray-300 text-center mb-6 text-lg">
               The SwapPro SDK is a headless TypeScript client that allows you to integrate swap functionality into your application with ease.
             </p>
-            
+
             <div className="bg-gray-800/50 rounded-lg p-6 border border-gray-700">
               <h2 className="text-xl font-semibold mb-4 text-white">Live Example</h2>
               <p className="text-gray-300 mb-4">
                 Click the button below to fetch a real quote for 0.1 ETH → USDC on Base using the <code className="text-[#4DF98A]">@swapspro/sdk</code> package.
               </p>
-              
-              <button 
+
+              <button
                 onClick={handleGetQuote}
                 disabled={loading}
                 className="bg-[#4DF98A] hover:bg-[#3ce577] text-black font-semibold py-2 px-6 rounded-lg transition-colors disabled:opacity-50 mb-6"
@@ -81,14 +81,14 @@ export default function SDKPage() {
                 </div>
               )}
             </div>
-            
+
             <div className="mt-8">
               <h3 className="text-lg font-medium text-white mb-4">Example Source Code</h3>
               <pre className="bg-black/50 text-gray-300 p-4 rounded-lg text-sm overflow-auto border border-gray-700">
 {`import { SwapsPro } from '@swapspro/sdk';
 
 const sdk = new SwapsPro({
-  baseUrl: "https://www.swaps.pro/api/sdk/v1",
+  baseUrl: "https://www.swaps.pro",
   partner: "your-partner-id",
 });
 
