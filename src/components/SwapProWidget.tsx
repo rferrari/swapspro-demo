@@ -2,40 +2,66 @@
 
 import { useEffect, useRef } from 'react';
 
+interface WidgetTheme {
+  colors?: {
+    canvas?: string;
+    surface?: string;
+    surfaceSunken?: string;
+    borderSubtle?: string;
+    text?: string;
+    textMuted?: string;
+    accent?: string;
+    accentText?: string;
+    accentSoft?: string;
+  };
+  fontFamily?: string;
+  shape?: {
+    borderRadius?: number;
+    borderRadiusSecondary?: number;
+  };
+}
+
 interface SwapsProWidgetProps {
-  theme?: string;
+  appearance?: 'dark' | 'light';
   accent?: string;
   radius?: number | string;
-  width?: number | string;
   background?: string;
+  width?: number | string;
+  font?: 'sans' | 'mono';
+  chrome?: 'card' | 'none';
   sell?: string;
   buy?: string;
   amount?: string;
+  proAddress?: string;
+  theme?: WidgetTheme;
   onHeightChange?: (h: number) => void;
 }
 
 export default function SwapsProWidget({
-  theme,
+  appearance,
   accent,
-  radius = 16,
-  width = '100%',
-  background = 'transparent',
+  radius,
+  background,
+  width,
+  font,
+  chrome,
   sell,
   buy,
   amount,
+  proAddress,
+  theme,
   onHeightChange,
 }: SwapsProWidgetProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
+  // Height listener
   useEffect(() => {
     const handler = (event: MessageEvent) => {
-      // Check that the message is from the iframe we rendered
       if (event.source !== iframeRef.current?.contentWindow) return;
       if (event.data && event.data.type === 'swapspro:height') {
         const iframe = iframeRef.current;
         if (iframe) {
           iframe.style.height = event.data.height + 'px';
-          // Optionally call the onHeightChange callback
           onHeightChange?.(event.data.height);
         }
       }
@@ -44,16 +70,30 @@ export default function SwapsProWidget({
     return () => window.removeEventListener('message', handler);
   }, [onHeightChange]);
 
-  // Build the src URL for the iframe
+  // Send theme object via postMessage when it changes
+  useEffect(() => {
+    if (theme && iframeRef.current?.contentWindow) {
+      iframeRef.current.contentWindow.postMessage(
+        { type: 'swapspro:style', theme },
+        '*'
+      );
+    }
+  }, [theme]);
+
+  // Build query parameters for simple styling
   const params = new URLSearchParams();
-  if (theme) params.set('theme', theme);
+  if (appearance) params.set('theme', appearance);
   if (accent) params.set('accent', accent);
   if (radius) params.set('radius', radius.toString());
-  // Note: The widget also accepts width, but we control the iframe width via props.
-  // The embed endpoint might accept other parameters like sell, buy, amount.
+  if (background) params.set('bg', background);
+  if (width) params.set('width', width.toString());
+  if (font) params.set('font', font);
+  if (chrome) params.set('chrome', chrome);
   if (sell) params.set('sell', sell);
   if (buy) params.set('buy', buy);
   if (amount) params.set('amount', amount);
+  if (proAddress) params.set('proAddress', proAddress);
+  // Note: origin is not a query parameter for the embed endpoint per docs
 
   const src = `https://www.swaps.pro/embed?${params.toString()}`;
 
@@ -62,14 +102,16 @@ export default function SwapsProWidget({
       id="swapspro"
       ref={iframeRef}
       src={src}
-      width={width}
-      height={640} // Initial height, will be updated by the message
+      width={width ?? '100%'}
+      height={640}
       style={{
         border: 0,
-        borderRadius: typeof radius === 'number' ? `${radius}px` : radius,
+        borderRadius:
+          typeof radius === 'number' ? `${radius}px` : radius,
         display: 'block',
         maxWidth: '100%',
-        background: background === 'transparent' ? 'transparent' : background,
+        background:
+          background === 'transparent' ? 'transparent' : background,
       }}
       title="SwapPro widget"
       allow="clipboard-write"
