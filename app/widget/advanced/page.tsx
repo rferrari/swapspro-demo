@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import SwapsProWidget from '@/components/SwapProWidget';
 import Link from 'next/link';
 
@@ -20,7 +20,7 @@ export default function AdvancedWidgetPage() {
   } | undefined>(undefined);
 
   // Default theme (dark)
-  const defaultTheme = {
+  const defaultTheme = useMemo(() => ({
     colors: {
       canvas: '#0b0f0d',
       surface: 'rgb(17, 24, 20)',
@@ -32,10 +32,10 @@ export default function AdvancedWidgetPage() {
       borderRadius: 20,
       borderRadiusSecondary: 10,
     },
-  };
+  }), []);
 
   // Light theme
-  const lightTheme = {
+  const lightTheme = useMemo(() => ({
     colors: {
       canvas: '#ffffff',
       surface: '#fafafa',
@@ -47,7 +47,7 @@ export default function AdvancedWidgetPage() {
       borderRadius: 16,
       borderRadiusSecondary: 8,
     },
-  };
+  }), []);
 
   const [currentTheme, setCurrentTheme] = useState<'dark' | 'light'>('dark');
 
@@ -58,7 +58,7 @@ export default function AdvancedWidgetPage() {
     } else {
       setTheme(lightTheme);
     }
-  }, [currentTheme, defaultTheme, lightTheme]); // Added dependencies to fix exhaustive-deps warning
+  }, [currentTheme, defaultTheme, lightTheme]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white py-12 px-4 sm:px-6 lg:px-8">
