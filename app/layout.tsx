@@ -5,8 +5,9 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'SwapPro Demo',
-  description: 'A demo of SwapPro SDK, HTTP API, and Widget',
+  title: 'SwapsPro starter kit',
+  description:
+    'A working demo of every SwapsPro integration surface: widget, SDK, HTTP API and the agent path — with the documentation on the page.',
 };
 
 export default function RootLayout({
@@ -16,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.className}>
-      <body className="antialiased">{children}</body>
+      <body className="bg-[#07090b] text-white antialiased">{children}</body>
     </html>
   );
 }

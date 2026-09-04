@@ -1,6 +1,8 @@
+/** Tailwind v3 + autoprefixer. One config, ESM. */
 const config = {
   plugins: {
-    "@tailwindcss/postcss": {},
+    tailwindcss: {},
+    autoprefixer: {},
   },
 };
 

@@ -1,0 +1,43 @@
+<!doctype html>
+<!--
+  The whole widget integration: an iframe and a height listener.
+  No build step, no keys, no backend. Open this file in a browser.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SwapsPro embed</title>
+    <style>
+      body { margin: 0; background: #0b0f0d; font-family: system-ui, sans-serif; }
+      .wrap { max-width: 480px; margin: 48px auto; padding: 0 16px; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <!-- accent must be URL-encoded: %23 is "#" -->
+      <iframe
+        id="swapspro"
+        src="https://www.swaps.pro/embed?theme=dark&accent=%234DF98A&radius=16&width=480&sell=base-eth&buy=base-usdc&amount=0.1"
+        width="100%"
+        height="640"
+        style="border: 0; display: block; border-radius: 16px"
+        title="SwapsPro widget"
+        allow="clipboard-write"
+      ></iframe>
+    </div>
+
+    <script>
+      // The frame measures itself and posts its height. Listening is optional —
+      // without this the message is inert and the iframe keeps its fixed height.
+      const frame = document.getElementById('swapspro');
+      window.addEventListener('message', (e) => {
+        // Always check the sender: any page can post to your window.
+        if (e.source !== frame.contentWindow) return;
+        if (e.data && e.data.type === 'swapspro:height') {
+          frame.style.height = e.data.height + 'px';
+        }
+      });
+    </script>
+  </body>
+</html>
